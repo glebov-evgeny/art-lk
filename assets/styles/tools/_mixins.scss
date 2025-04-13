@@ -1,0 +1,51 @@
+/* stylelint-disable */
+@use 'sass:math';
+
+@function torem($px) {
+  @return math.div($px, 16) + rem;
+}
+
+@mixin _1920 {
+  @media screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin _1440 {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin _1140 {
+  @media screen and (min-width: 1140px) {
+    @content;
+  }
+}
+
+@mixin _992 {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin _768 {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin _576 {
+  @media screen and (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin transition {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+
+/* stylelint-enable */

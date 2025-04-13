@@ -1,0 +1,37 @@
+/* stylelint-disable */
+.s-editor {
+  max-width: torem(1010);
+
+  .ql-toolbar {
+    background: var(--color-white);
+    border-radius: var(--border-radius-x1) var(--border-radius-x1) 0 0;
+  }
+
+  .ql-container {
+    min-height: torem(128);
+    background: var(--color-white);
+    border-radius: 0 0 var(--border-radius-x1) var(--border-radius-x1);
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: torem(200);
+    min-height: torem(46);
+    margin-top: torem(16);
+    color: var(--color-white);
+    background: var(--color-red-light);
+    border: none;
+    border-radius: var(--border-radius-x1);
+    outline: none;
+    cursor: pointer;
+    &._disabled {
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+/* stylelint-enable */

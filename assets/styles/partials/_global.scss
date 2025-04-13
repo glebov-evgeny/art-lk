@@ -1,0 +1,108 @@
+/* stylelint-disable */
+html,
+body {
+  height: 100%;
+  background-color: var(--color-main);
+}
+
+body {
+  overflow-x: hidden !important;
+  background-color: var(--color-main);
+  font-family: 'Circe', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-variant: no-common-ligatures;
+  transition: background-color 0.3s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --layout-width: 100%;
+  --layout-padding: 5rem;
+  --layout-v-padding: 3.75rem;
+
+  @media all and (min-width: 768px) {
+    --layout-width: 100%;
+  }
+
+  @media all and (min-width: 1140px) {
+    --layout-width: 100%;
+  }
+
+  @media all and (min-width: 1440px) {
+    --layout-width: 120rem; // 1920px
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-second);
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.l-default,
+.l-wide {
+  max-width: var(--layout-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  transition: max-width 0.5s ease;
+}
+
+.s-padding {
+  padding: var(--a-padding-x10) var(--a-padding-x4);
+
+  @media screen and (min-width: 768px) {
+    padding: var(--a-padding-x12) var(--a-padding-x8);
+  }
+
+  @media screen and (min-width: 1140px) {
+    padding: var(--a-padding-x15) var(--a-padding-x17);
+  }
+}
+
+.s-margin {
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    margin: 1.5rem auto;
+  }
+
+  @media screen and (min-width: 1140px) {
+    margin: 3rem auto;
+  }
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+.s-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-main);
+}
+
+.s-main {
+  flex: 1 auto;
+  width: 100%;
+  background: var(--color-main);
+  overflow-x: hidden;
+  margin-top: 56px; /* высота хэдера*/
+  @include _1440 {
+    margin: 0;
+    padding-top: 62px; /* высота хэдера*/
+  }
+}
+/* stylelint-enable */

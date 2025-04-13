@@ -1,0 +1,60 @@
+/* stylelint-disable no-descending-specificity */
+
+.s-footer {
+  padding: var(--a-padding-x4) 0;
+  color: var(--color-white);
+  background: var(--color-black);
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: torem(25);
+    height: torem(25);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    svg {
+      transition: 0.3s;
+
+      path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  &__login {
+    margin-left: torem(8);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    img {
+      width: torem(25);
+      height: torem(25);
+      filter: invert(1);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+/* stylelint-enable no-descending-specificity */

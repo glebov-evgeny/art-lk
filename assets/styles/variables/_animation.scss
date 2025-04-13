@@ -1,0 +1,21 @@
+/* stylelint-disable */
+:root {
+  @keyframes smallSwing {
+    0% {
+      transform: rotate(0);
+    }
+
+    33% {
+      transform: rotate(-5deg) translateY(-10px);
+    }
+
+    66% {
+      transform: rotate(5deg) scale(1.05) translateX(10px);
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+}
+/* stylelint-enable */

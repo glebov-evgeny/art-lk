@@ -1,0 +1,88 @@
+{
+  "name": "origami",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint --ext .vue,.js,.jsx,.tsx,.ts --fix . --quiet",
+    "lint:style": "stylelint \"**/*.scss\" scss --fix",
+    "lint": "yarn format & yarn lint:js & yarn lint:style",
+    "test": "jest",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "format": "prettier .  --write",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.1",
+    "@commitlint/config-conventional": "^17.4.0",
+    "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "@vue/cli-service": "^5.0.8",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.2",
+    "push-dir": "^0.4.1",
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.3.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "typescript": "^4.9.4",
+    "vue-jest": "^3.0.7"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "@vueup/vue-quill": "^1.2.0",
+    "commitizen": "^4.2.6",
+    "cz-customizable": "^7.0.0",
+    "dompurify": "^2.4.3",
+    "firebase": "^9.18.0",
+    "gh-pages": "^5.0.0",
+    "nuxt": "^3.2.0",
+    "nuxt-swiper": "^0.1.9",
+    "pinia": "^2.0.29",
+    "quill-blot-formatter": "^1.0.5",
+    "swiper": "^8.4.6",
+    "vite-plugin-eslint": "^1.8.1",
+    "vue-router": "^4.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./commitizen.js"
+    }
+  },
+  "lint-staged": {
+    "**/*.scss": "yarn lint:style",
+    "**/*": [
+      "prettier --ignore-unknown --write",
+      "git add ."
+    ],
+    "**/*.{vue,js,jsx,tsx,ts}": [
+      "eslint --ext .vue,.js,.jsx,.tsx,.ts --fix . --quiet",
+      "git add ."
+    ]
+  }
+}
