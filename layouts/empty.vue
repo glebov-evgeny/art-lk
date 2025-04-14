@@ -14,7 +14,3 @@ const changeColorThemes = () => {
   isLightThemes.value = !isLightThemes.value;
 };
 </script>
-<route lang="yaml">
-meta:
-layout: empty
-</route>
