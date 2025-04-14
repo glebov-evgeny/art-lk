@@ -1,6 +1,5 @@
 <template>
-  <section class="s-auth">
-    dd
+  <section class="s-login">
     <div class="s-auth__container l-wide">
       <h1 class="s-auth__title">{{ formName ? 'Войти' : 'Регистрация' }}</h1>
       <div class="s-auth__formbox">
@@ -18,12 +17,12 @@
             <p v-if="fbError" class="s-auth__form-error-text">{{ fbErrorText }}</p>
           </div>
         </form>
-        <!-- <div class="s-auth__changebox">
+        <div class="s-auth__changebox">
           <span class="s-auth__text">или</span>
           <button class="s-auth__button" @click="checkForm">
             {{ formName ? 'Регистрация' : 'Войти' }}
           </button>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
@@ -51,7 +50,7 @@ let passwordError = ref(false);
 let fbError = ref(false);
 let fbErrorText = ref('');
 
-// const checkForm = () => (formName.value = !formName.value);
+const checkForm = () => (formName.value = !formName.value);
 
 const sendForm = async () => {
   if (!email.value.trim() || !password.value.trim()) {

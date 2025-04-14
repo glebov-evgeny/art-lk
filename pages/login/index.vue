@@ -1,12 +1,12 @@
 <template>
   <main class="s-main-login">
-    <div>
-      <!--      <nuxt-img src="/images/header/logo-origami-color.png" format="webp" loading="lazy" />-->
-    </div>
+    <m-image :image="backgroundImage" />
     <s-login />
   </main>
 </template>
 <script setup>
+const backgroundImage = ref('/images/login/login.png');
+
 definePageMeta({
   layout: 'login',
 });

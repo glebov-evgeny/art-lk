@@ -2,12 +2,12 @@
 html,
 body {
   height: 100%;
-  background-color: var(--color-main);
+  background-color: var(--color-white);
 }
 
 body {
   overflow-x: hidden !important;
-  background-color: var(--color-main);
+  background-color: var(--color-white);
   font-family: 'Circe', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -91,18 +91,22 @@ a {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--color-main);
+  //background: var(--color-white);
 }
 
 .s-main {
   flex: 1 auto;
   width: 100%;
-  background: var(--color-main);
+  //background: var(--color-main);
   overflow-x: hidden;
   margin-top: 56px; /* высота хэдера*/
   @include _1440 {
     margin: 0;
     padding-top: 62px; /* высота хэдера*/
+  }
+  &-login{
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 /* stylelint-enable */

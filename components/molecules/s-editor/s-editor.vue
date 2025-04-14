@@ -21,7 +21,7 @@ const props = defineProps({
   itemContent: {
     type: String,
     default: () => {
-      return {};
+      return '';
     },
   },
   createOrUpdate: {
