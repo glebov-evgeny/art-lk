@@ -50,9 +50,9 @@
 
 <script setup>
 const config = useRuntimeConfig();
-import { useUserStore } from '~/store/user';
+import { useAppStore } from '~/store/app';
 const router = useRouter();
-const currentUser = useUserStore();
+const currentUser = useAppStore();
 const userInformation = useCookie('userInformation');
 const userCorrect = ref(false);
 const emit = defineEmits(['handler-change-themes']);

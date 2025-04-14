@@ -30,10 +30,10 @@
 
 <script setup>
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
-import { useUserStore } from '~/store/user';
+import { useAppStore } from '~/store/app';
 const auth = getAuth();
 const config = useRuntimeConfig();
-const currentUser = useUserStore();
+const currentUser = useAppStore();
 const router = useRouter();
 const userInformation = useCookie('userInformation', {
   default: () => null,
