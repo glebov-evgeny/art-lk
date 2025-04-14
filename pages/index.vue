@@ -10,6 +10,10 @@
   </main>
 </template>
 <script setup>
+definePageMeta({
+  middleware: 'auth',
+});
+
 const popupCookieIsShow = ref(false);
 const userAgreeCookie = useCookie('userAgreeCookie', {
   default: () => null,

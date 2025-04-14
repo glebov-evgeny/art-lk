@@ -1,18 +1,21 @@
 import { defineStore } from 'pinia';
 
-export const useUserStore = defineStore({
-  id: 'user-store',
+export const useAppStore = defineStore({
+  id: 'app',
   state: () => {
     return {
-      email: null,
-      uid: null,
+      user: {
+        email: null,
+        uid: null,
+      },
+      userInformation: null,
     };
   },
 
   actions: {
     setUser(email, uid) {
-      this.email = email;
-      this.uid = uid;
+      this.user.email = email;
+      this.user.uid = uid;
     },
   },
 });

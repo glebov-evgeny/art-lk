@@ -58,7 +58,7 @@ const userCorrect = ref(false);
 const emit = defineEmits(['handler-change-themes']);
 
 const linkNavigateToAuth = () => {
-  router.push({ path: '/authorization' });
+  router.push({ path: '/login' });
 };
 
 const loginClean = () => {
