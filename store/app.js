@@ -8,7 +8,7 @@ export const useAppStore = defineStore({
         email: null,
         uid: null,
       },
-      userInformation: null,
+      userInMemory: false,
     };
   },
 
@@ -16,6 +16,17 @@ export const useAppStore = defineStore({
     setUser(email, uid) {
       this.user.email = email;
       this.user.uid = uid;
+    },
+    setUserInMemory(value = true) {
+      this.userInMemory = value;
+    },
+    syncUserFromCookie() {
+      const userInformation = useCookie('userInformation');
+      if (userInformation.value) {
+        this.setUserInMemory(true);
+      } else {
+        this.setUserInMemory(false);
+      }
     },
   },
 });

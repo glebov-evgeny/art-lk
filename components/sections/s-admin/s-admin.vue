@@ -2,6 +2,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <section class="s-admin">
+    {{ currentUser }}
     <div class="s-admin__container l-wide">
       <h1 class="s-admin__title s-title">Админ панель</h1>
       <div class="s-admin__block">
@@ -47,6 +48,8 @@
   </section>
 </template>
 <script setup>
+import { useAppStore } from '~/store/app';
+const currentUser = useAppStore();
 import getArticles from '~/api/getArticles';
 import setNewArticle from '~/api/setNewArticle';
 import updateNewArticle from '~/api/updateNewArticle';

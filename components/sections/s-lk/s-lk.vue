@@ -34,8 +34,8 @@
 <script setup>
 import addDate from '~/api/addDate';
 import getDate from '~/api/getDate';
-import { useUserStore } from '~/store/app';
-const currentUser = useUserStore();
+import { useAppStore } from '~/store/app';
+const currentUser = useAppStore();
 const userColor = ref('#FFFFFF');
 let contentInformation = ref([]);
 

@@ -41,14 +41,14 @@ export default defineNuxtConfig({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Оригами из бумаги. Все схемы для сборки красивый и интересных оригами.',
+          content: 'Текст обо всём',
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'Оригами из бумаги. Все схемы для сборки красивый и интересных оригами.',
+          content: 'Текст обо всём',
         },
-        { hid: 'keywords', name: 'keywords', content: 'Оригами' },
+        { hid: 'keywords', name: 'keywords', content: 'Текст обо всём' },
         { name: 'theme-color', content: '#fff' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       ],

@@ -1,0 +1,118 @@
+/* stylelint-disable no-descending-specificity selector-class-pattern */
+
+.s-auth {
+  @include _1440 {
+    padding: torem(120) 0;
+  }
+
+  width: 100%;
+  padding: torem(60) 0;
+  color: var(--color-second);
+
+  &__title {
+    @include _768 {
+      font-size: torem(28);
+    }
+
+    margin-bottom: torem(16);
+    color: var(--color-second);
+    font-size: torem(24);
+    font-weight: 600;
+    line-height: 135%;
+    text-align: center;
+  }
+
+  &__formbox {
+    max-width: torem(420);
+    margin: torem(24) auto 0;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: var(--a-padding-x2);
+    border: torem(1) solid var(--color-grey);
+    border-radius: var(--border-radius-x1);
+
+    &-input {
+      width: 100%;
+      min-height: torem(40);
+      margin-bottom: torem(10);
+      padding: 0 torem(8);
+      color: var(--color-second);
+
+      // border-radius: var(--border-radius-x1);
+      background: transparent !important;
+      border: none;
+      border-bottom: torem(1) solid var(--color-grey);
+      font-size: torem(16);
+      font-weight: 600;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: torem(46);
+      color: var(--color-white);
+      background: var(--color-red);
+      border: none;
+      border-radius: var(--border-radius-x1);
+      outline: none;
+      font-size: torem(16);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    &-error {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: torem(46);
+      margin: torem(8) auto 0;
+      color: var(--color-white);
+      background: var(--color-error);
+      border-radius: var(--border-radius-x1);
+      font-size: torem(14);
+      font-weight: 600;
+      user-select: none;
+    }
+  }
+
+  &__text {
+    display: block;
+    margin: 1rem auto;
+    font-size: torem(16);
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: torem(40);
+    color: var(--color-black);
+    background: var(--color-grey);
+    border: none;
+    border-radius: var(--border-radius-x1);
+    outline: none;
+    font-size: torem(14);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__help {
+    display: block;
+    margin: 2rem auto 0;
+    font-size: torem(14);
+
+    &-bold {
+      font-weight: 800;
+    }
+  }
+}
+/* stylelint-enable no-descending-specificity selector-class-pattern */

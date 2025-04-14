@@ -1,5 +1,6 @@
 <template>
   <section class="s-auth">
+    dd
     <div class="s-auth__container l-wide">
       <h1 class="s-auth__title">{{ formName ? 'Войти' : 'Регистрация' }}</h1>
       <div class="s-auth__formbox">
@@ -141,5 +142,5 @@ const sendLoginForm = async () => {
 </script>
 
 <style lang="scss">
-@import './s-auth.scss';
+@import './s-login.scss';
 </style>
