@@ -1,6 +1,11 @@
 <template>
   <section class="s-editor">
-    <quill-editor v-model:content="content" content-type="html" theme="snow" toolbar="full"></quill-editor>
+    <quill-editor
+      v-model:content="content"
+      content-type="html"
+      theme="snow"
+      toolbar="full"
+    ></quill-editor>
     <button
       v-if="props.createOrUpdate"
       class="s-editor__button"
@@ -9,7 +14,9 @@
     >
       Создать
     </button>
-    <button v-else class="s-editor__button" @click="updateArticle">Редактировать</button>
+    <button v-else class="s-editor__button" @click="updateArticle">
+      Редактировать
+    </button>
   </section>
 </template>
 <script setup>

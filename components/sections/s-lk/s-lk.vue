@@ -21,7 +21,11 @@
             <div class="s-lk__user-item">
               <p class="s-lk__user-item-label"><b>Любимый цвет:</b></p>
               <div class="s-lk__user-item-wrapper">
-                <input v-model="userColor" type="color" class="s-lk__user-item-color" />
+                <input
+                  v-model="userColor"
+                  type="color"
+                  class="s-lk__user-item-color"
+                />
               </div>
             </div>
           </div>

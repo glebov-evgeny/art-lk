@@ -10,7 +10,11 @@
           <h2 class="s-admin__subtitle">Основная информация:</h2>
           <div class="s-admin__row">
             <h3 class="s-admin__row-title">Название:</h3>
-            <input v-model="itemTitle" class="s-admin__input" placeholder="Заголовок статьи" />
+            <input
+              v-model="itemTitle"
+              class="s-admin__input"
+              placeholder="Заголовок статьи"
+            />
           </div>
           <div class="s-admin__row">
             <h3 class="s-admin__row-title">Основной текст:</h3>
@@ -27,15 +31,39 @@
           <div class="s-admin__box _content">
             <h2 class="s-admin__subtitle">Все статьи:</h2>
             <div class="s-admin__box-items">
-              <div v-for="item in allArticles" :key="item.id" class="s-admin__box-item">
+              <div
+                v-for="item in allArticles"
+                :key="item.id"
+                class="s-admin__box-item"
+              >
                 <h3 class="s-admin__box-item-title">{{ item.data.title }}</h3>
                 <div class="s-admin__box-item-logic">
-                  <div class="s-admin__box-item-action _green" @click="editingArticle(item.id)">Р</div>
-                  <div v-if="item.data.visible" class="s-admin__box-item-action _brown" @click="hideArticle(item.id)">
+                  <div
+                    class="s-admin__box-item-action _green"
+                    @click="editingArticle(item.id)"
+                  >
+                    Р
+                  </div>
+                  <div
+                    v-if="item.data.visible"
+                    class="s-admin__box-item-action _brown"
+                    @click="hideArticle(item.id)"
+                  >
                     С
                   </div>
-                  <div v-else class="s-admin__box-item-action _brown _hidden" @click="showArticle(item.id)">С</div>
-                  <div class="s-admin__box-item-action _red" @click="deleteArticle(item.id)">У</div>
+                  <div
+                    v-else
+                    class="s-admin__box-item-action _brown _hidden"
+                    @click="showArticle(item.id)"
+                  >
+                    С
+                  </div>
+                  <div
+                    class="s-admin__box-item-action _red"
+                    @click="deleteArticle(item.id)"
+                  >
+                    У
+                  </div>
                 </div>
               </div>
             </div>
@@ -44,7 +72,11 @@
       </div>
     </div>
     <s-popup-info v-if="popupInfoShow" @close-popup="closePopupInfo" />
-    <s-popup-alert v-if="popupAlertShow" @close-popup="closePopupAlert" @delete-item="deleteArticleAbsolutly" />
+    <s-popup-alert
+      v-if="popupAlertShow"
+      @close-popup="closePopupAlert"
+      @delete-item="deleteArticleAbsolutly"
+    />
   </section>
 </template>
 <script setup>
@@ -109,7 +141,9 @@ const deleteArticleAbsolutly = async () => {
 
 async function getAllArticles() {
   const response = await getArticles();
-  allArticles.value = response.sort((a, b) => a.data.createAt - b.data.createAt);
+  allArticles.value = response.sort(
+    (a, b) => a.data.createAt - b.data.createAt,
+  );
 }
 
 const closePopupInfo = () => {

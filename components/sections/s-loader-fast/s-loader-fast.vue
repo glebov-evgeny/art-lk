@@ -15,7 +15,11 @@
         <defs>
           <filter id="goo">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-            <feColorMatrix in="blur" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 50 -8" result="goo" />
+            <feColorMatrix
+              in="blur"
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 50 -8"
+              result="goo"
+            />
             <feBlend in="SourceGraphic" in2="goo" />
           </filter>
         </defs>

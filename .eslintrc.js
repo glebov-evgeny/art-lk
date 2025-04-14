@@ -12,16 +12,14 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: "latest",
-    parser: "@typescript-eslint/parser",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
   rules: {
-    "vue/no-v-text-v-html-on-component": 0,
-    'vue/no-v-html':  0,
+    'vue/no-v-text-v-html-on-component': 0,
+    'vue/no-v-html': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'max-len': ['error', { ignorePattern: 'd="([\\s\\S]*?)"', code: 120 }],

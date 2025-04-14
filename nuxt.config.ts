@@ -1,16 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from 'nuxt/config';
-import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineNuxtConfig({
   ssr: false,
   debug: true,
   vite: {
-    plugins: [eslintPlugin({ fix: true })],
+    plugins: [],
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/assets/styles/tools/_mixins.scss";`,
+          additionalData: '@import "@/assets/styles/tools/_mixins.scss";',
         },
       },
     },
@@ -26,14 +25,11 @@ export default defineNuxtConfig({
       },
     },
   },
-  // https://github.com/cpreston321/nuxt-swiper
-  modules: ['nuxt-swiper', '@pinia/nuxt', '@nuxt/image-edge'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', 'nuxt-icon', '@nuxt/image'],
   app: {
     head: {
       title: 'Origami-Info',
-      htmlAttrs: {
-        lang: 'ru',
-      },
+      htmlAttrs: { lang: 'ru' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -41,33 +37,43 @@ export default defineNuxtConfig({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Оригами из бумаги. Все схемы для сборки красивый и интересных оригами.',
+          content: 'Текст обо всём',
         },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Оригами из бумаги. Все схемы для сборки красивый и интересных оригами.',
-        },
-        { hid: 'keywords', name: 'keywords', content: 'Оригами' },
+        { hid: 'description', name: 'description', content: 'Текст обо всём' },
+        { hid: 'keywords', name: 'keywords', content: 'Текст обо всём' },
         { name: 'theme-color', content: '#fff' },
-        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'black-translucent',
+        },
       ],
       link: [
         { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-        { rel: 'icon', sizes: '32x32', href: '/favicon-32x32.png', type: 'image/png' },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+        },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/styles/main.scss'],
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     global: true,
-    // order matters: https://github.com/nuxt/nuxt/issues/15135#issuecomment-1397372680
-    dirs: ['~/components/molecules', '~/components/atoms', '~/components/sections'],
+    dirs: [
+      '~/components/molecules',
+      '~/components/atoms',
+      '~/components/sections',
+    ],
   },
   runtimeConfig: {
     public: {
@@ -80,4 +86,5 @@ export default defineNuxtConfig({
       ADMIN_ID: process.env.ADMIN_ID,
     },
   },
+  compatibilityDate: '2025-04-14',
 });

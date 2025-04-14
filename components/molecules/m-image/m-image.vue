@@ -1,5 +1,8 @@
 <template>
-  <section class="m-image" :style="{ backgroundImage: `url(${image})` }"></section>
+  <section
+    class="m-image"
+    :style="{ backgroundImage: `url(${image})` }"
+  ></section>
 </template>
 
 <script setup>

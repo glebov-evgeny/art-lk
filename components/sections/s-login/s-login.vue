@@ -5,22 +5,44 @@
       <div class="s-auth__formbox">
         <form class="s-auth__form" @submit.prevent="sendForm">
           <label class="s-auth__form-label">
-            <input v-model="email" class="s-auth__form-input" type="text" placeholder="Почта" />
+            <input
+              v-model="email"
+              class="s-auth__form-input"
+              type="text"
+              placeholder="Почта"
+            />
           </label>
           <label class="s-auth__form-label">
-            <input v-model="password" class="s-auth__form-input" type="password" placeholder="Пароль" />
+            <input
+              v-model="password"
+              class="s-auth__form-input"
+              type="password"
+              placeholder="Пароль"
+            />
           </label>
-          <button type="submit" class="s-auth__form-button">{{ formName ? 'Вход' : 'Зарегистрироваться' }}</button>
+          <button type="submit" class="s-auth__form-button">
+            {{ formName ? 'Вход' : 'Зарегистрироваться' }}
+          </button>
           <div v-if="validFlag" class="s-auth__form-error">
-            <p v-if="emailError" class="s-auth__form-error-text">Укажите корректную почту</p>
-            <p v-if="passwordError" class="s-auth__form-error-text">Пароль должен быть из 6 и более символов</p>
-            <p v-if="fbError" class="s-auth__form-error-text">{{ fbErrorText }}</p>
+            <p v-if="emailError" class="s-auth__form-error-text">
+              Укажите корректную почту
+            </p>
+            <p v-if="passwordError" class="s-auth__form-error-text">
+              Пароль должен быть из 6 и более символов
+            </p>
+            <p v-if="fbError" class="s-auth__form-error-text">
+              {{ fbErrorText }}
+            </p>
           </div>
         </form>
         <div class="s-auth__changebox">
           <span class="s-auth__text">или</span>
           <button class="s-auth__button" @click="checkForm">
             {{ formName ? 'Регистрация' : 'Войти' }}
+          </button>
+          <!-- {{ $t('header.logout') }} -->
+          <button class="s-header__lang" @click="changeLanguage($i18n)">
+            <span>{{ $t('header.language') }}</span>
           </button>
         </div>
       </div>
@@ -29,7 +51,11 @@
 </template>
 
 <script setup>
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from '@firebase/auth';
 import { useAppStore } from '~/store/app';
 const auth = getAuth();
 const config = useRuntimeConfig();
@@ -51,6 +77,10 @@ let fbError = ref(false);
 let fbErrorText = ref('');
 
 const checkForm = () => (formName.value = !formName.value);
+
+const changeLanguage = (lang) => {
+  lang.locale = lang.locale === 'ru' ? 'en' : 'ru';
+};
 
 const sendForm = async () => {
   if (!email.value.trim() || !password.value.trim()) {
@@ -81,7 +111,11 @@ const sendForm = async () => {
 
 const sendRegForm = async () => {
   try {
-    const user = await createUserWithEmailAndPassword(auth, email.value, password.value);
+    const user = await createUserWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value,
+    );
     currentUser.setUser(email.value, user.user.uid);
     currentUser.setUserInMemory(true);
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
@@ -111,7 +145,11 @@ const sendRegForm = async () => {
 
 const sendLoginForm = async () => {
   try {
-    const user = await signInWithEmailAndPassword(auth, email.value, password.value);
+    const user = await signInWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value,
+    );
     currentUser.setUser(email.value, user.user.uid);
     currentUser.setUserInMemory(true);
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
@@ -131,7 +169,9 @@ const sendLoginForm = async () => {
     fbError.value = true;
     if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
       fbErrorText.value = 'Почта уже зарегистрирована.';
-    } else if (error.message === 'Firebase: Error (auth/invalid-login-credentials).') {
+    } else if (
+      error.message === 'Firebase: Error (auth/invalid-login-credentials).'
+    ) {
       fbErrorText.value = 'Пользователь не найден';
     } else {
       // console.error(`Ошибка: ${error.message}`);

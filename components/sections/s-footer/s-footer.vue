@@ -4,7 +4,12 @@
       <div class="s-footer__block">
         <span>{{ getYear }}. Все права защищены.</span>
         <div class="s-footer__socials">
-          <button class="s-footer__theme" aria-label="change color themes button" type="button" @click="changeThemes">
+          <button
+            class="s-footer__theme"
+            aria-label="change color themes button"
+            type="button"
+            @click="changeThemes"
+          >
             <svg
               width="24"
               height="24"
@@ -26,7 +31,11 @@
             </svg>
           </button>
 
-          <NuxtLink v-if="currentUser.uid === config.ADMIN_ID" class="s-footer__login" to="/admin">
+          <NuxtLink
+            v-if="currentUser.uid === config.ADMIN_ID"
+            class="s-footer__login"
+            to="/admin"
+          >
             <img src="/images/icons/lk.png" alt="lk icon" />
           </NuxtLink>
 
@@ -39,7 +48,13 @@
           >
             <img src="/images/icons/login.png" alt="login icon" />
           </button>
-          <button v-else class="s-footer__login" aria-label="logout button" type="button" @click="loginClean">
+          <button
+            v-else
+            class="s-footer__login"
+            aria-label="logout button"
+            type="button"
+            @click="loginClean"
+          >
             <img src="/images/icons/logout.png" alt="logout icon" />
           </button>
         </div>
