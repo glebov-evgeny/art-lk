@@ -108,6 +108,9 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     height: 100%;
+    @include _1140 {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 }
 /* stylelint-enable */

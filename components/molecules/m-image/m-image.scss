@@ -2,4 +2,9 @@
   display: none;
   background-size: cover;
   background-position: center;
+
+  @include _1140 {
+    display: block;
+    grid-column: 1 / 5;
+  }
 }

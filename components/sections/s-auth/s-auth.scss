@@ -9,6 +9,7 @@
 
   @include _1140 {
     background: var(--color-white);
+    grid-column: 5 / 7;
   }
 
   &__container {
