@@ -1,6 +1,9 @@
 <template>
   <section class="s-auth">
     <div class="s-auth__container l-wide">
+      <div class="s-auth__top">
+        <a-lang />
+      </div>
       <h1 class="s-auth__title">{{ formName ? 'Войти' : 'Регистрация' }}</h1>
       <div class="s-auth__formbox">
         <form class="s-auth__form" @submit.prevent="sendForm">

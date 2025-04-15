@@ -1,14 +1,14 @@
-/* stylelint-disable no-descending-specificity selector-class-pattern */
-
 .s-auth {
-  @include _1440 {
-    padding: torem(120) 0;
-  }
-
   width: 100%;
-  padding: torem(60) 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url('/public/images/login/login-mobile.jpg') center no-repeat;
+  background-size: cover;
   color: var(--color-second);
 
+  // @include _1440 {
+  //   padding: torem(120) 0;
+  // }
   &__title {
     @include _768 {
       font-size: torem(28);
@@ -115,4 +115,3 @@
     }
   }
 }
-/* stylelint-enable no-descending-specificity selector-class-pattern */

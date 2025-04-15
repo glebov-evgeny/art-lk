@@ -18,5 +18,8 @@ module.exports = {
     'no-descending-specificity': null,
     'property-no-vendor-prefix': null,
     'selector-class-pattern': null,
+    'alpha-value-notation': null,
+    'color-function-alias-notation': null,
+    'color-function-notation': null,
   },
 };

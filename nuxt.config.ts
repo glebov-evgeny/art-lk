@@ -28,12 +28,12 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', 'nuxt-icon', '@nuxt/image'],
   app: {
     head: {
-      title: 'Origami-Info',
+      title: 'Art LK',
       htmlAttrs: { lang: 'ru' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'og:title', property: 'og:title', content: 'origami-info.ru' },
+        { hid: 'og:title', property: 'og:title', content: 'ART_LK.ru' },
         {
           hid: 'og:description',
           property: 'og:description',
