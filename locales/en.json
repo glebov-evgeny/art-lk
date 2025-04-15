@@ -22,7 +22,9 @@
     "password": "Password",
     "confirm": "I confirm to the sending, processing and storage of data",
     "confirm2": "I confirm to the processing of data and agree to the privacy policy",
-    "or": "or"
+    "or": "or",
+    "errorUser": "User not found",
+    "errorMail": "Mail is already registered"
   },
   "intro": {
     "subtitle": "Hey, I’m",

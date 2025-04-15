@@ -13,31 +13,33 @@
             <form class="s-auth__form" @submit.prevent="sendForm">
               <label class="s-auth__form-label">
                 <input
-                  v-model="email"
-                  class="s-auth__form-input"
+                  v-model.trim="email"
+                  class="s-auth__form-input s-auth__form-input-email"
+                  :class="{ _error: emailError }"
                   type="text"
                   :placeholder="$t('form.email')"
                 />
               </label>
               <label class="s-auth__form-label">
                 <input
-                  v-model="password"
-                  class="s-auth__form-input"
-                  type="password"
+                  v-model.trim="password"
+                  class="s-auth__form-input s-auth__form-input-password"
+                  :class="{ _error: passwordError }"
+                  :type="typePassword"
                   :placeholder="$t('form.password')"
                 />
+                <div
+                  class="s-auth__form-input-right"
+                  @click="changePasswordType"
+                >
+                  {{ inputType === 'password' ? '👁️' : '🙈' }}
+                </div>
               </label>
               <button type="submit" class="s-auth__form-button">
                 {{ formName ? $t('form.login') : $t('form.registration') }}
               </button>
               <div v-if="validFlag" class="s-auth__form-error">
-                <p v-if="emailError" class="s-auth__form-error-text">
-                  Укажите корректную почту
-                </p>
-                <p v-if="passwordError" class="s-auth__form-error-text">
-                  Пароль должен быть из 6 и более символов
-                </p>
-                <p v-if="fbError" class="s-auth__form-error-text">
+                <p class="s-auth__form-error-text">
                   {{ fbErrorText }}
                 </p>
               </div>
@@ -60,6 +62,7 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -74,6 +77,7 @@ const userInformation = useCookie('userInformation', {
   default: () => null,
   watch: 'shallow',
 });
+const { t } = useI18n();
 
 let formName = ref(true);
 
@@ -82,35 +86,24 @@ let password = ref('');
 let validFlag = ref(false);
 let emailError = ref(false);
 let passwordError = ref(false);
-let fbError = ref(false);
 let fbErrorText = ref('');
 
 const checkForm = () => (formName.value = !formName.value);
 
 const sendForm = async () => {
-  if (!email.value.trim() || !password.value.trim()) {
-    validFlag.value = true;
-    return;
-  }
   const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   if (email.value && !regex.test(email.value)) {
-    validFlag.value = true;
     emailError.value = true;
-    return;
   }
   if (password.value.length < 6) {
-    validFlag.value = true;
-    emailError.false = false;
     passwordError.value = true;
-    return;
   }
-
-  validFlag.value = false;
-
-  if (formName.value == true) {
-    sendLoginForm();
-  } else {
-    sendRegForm();
+  if (!emailError.value && !passwordError.value) {
+    if (formName.value == true) {
+      sendLoginForm();
+    } else {
+      sendRegForm();
+    }
   }
 };
 
@@ -130,20 +123,12 @@ const sendRegForm = async () => {
       maxAge: 60 * 60 * 24 * 7,
     };
     userInformation.value = cookieDataUser;
-    // console.log(user.user.uid);
-    // console.log(config.ADMIN_ID);
-    // if (user.user.uid === config.ADMIN_ID) {
-    //   router.push({ path: '/admin' });
-    // } else {
-    //   router.push({ path: '/lk' });
-    // }
   } catch (error) {
     validFlag.value = true;
-    fbError.value = true;
     if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-      fbErrorText.value = 'Почта уже зарегистрирована.';
+      fbErrorText.value = t('form.errorMail');
     } else {
-      // console.error(`Ошибка: ${error.message}`);
+      console.error(`Ошибка: ${error.message}`);
     }
   }
 };
@@ -157,6 +142,7 @@ const sendLoginForm = async () => {
     );
     currentUser.setUser(email.value, user.user.uid);
     currentUser.setUserInMemory(true);
+
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
     const cookieDataUser = {
       email: email.value,
@@ -164,25 +150,46 @@ const sendLoginForm = async () => {
       maxAge: 60 * 60 * 24 * 7,
     };
     userInformation.value = cookieDataUser;
-    if (user.user.uid === config.ADMIN_ID) {
+
+    if (user.user.uid === config.public.ADMIN_ID) {
       router.push({ path: '/admin' });
     } else {
       router.push({ path: '/' });
     }
   } catch (error) {
     validFlag.value = true;
-    fbError.value = true;
     if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-      fbErrorText.value = 'Почта уже зарегистрирована.';
+      fbErrorText.value = t('form.errorMail');
     } else if (
       error.message === 'Firebase: Error (auth/invalid-login-credentials).'
     ) {
-      fbErrorText.value = 'Пользователь не найден';
+      fbErrorText.value = t('form.errorUser');
     } else {
-      // console.error(`Ошибка: ${error.message}`);
+      console.error(`Ошибка: ${error.message}`);
     }
   }
 };
+const typePassword = ref('password');
+
+const changePasswordType = () => {
+  typePassword.value = typePassword.value === 'password' ? 'text' : 'password';
+};
+
+const inputType = computed(() =>
+  typePassword.value === 'password' ? 'password' : 'text',
+);
+watch(
+  () => email.value,
+  () => {
+    emailError.value = false;
+  },
+);
+watch(
+  () => password.value,
+  () => {
+    passwordError.value = false;
+  },
+);
 </script>
 
 <style lang="scss">
