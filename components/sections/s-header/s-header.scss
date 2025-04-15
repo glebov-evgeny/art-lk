@@ -206,12 +206,11 @@
   }
 
   &__aside {
+    display: flex;
+    align-items: center;
     @include _768 {
       display: none;
     }
-
-    display: flex;
-    align-items: center;
   }
 
   &__login {
@@ -238,6 +237,7 @@
 
     .ham {
       cursor: pointer;
+      -webkit-user-select: none;
       user-select: none;
       transition: transform 0.5s;
       -webkit-tap-highlight-color: transparent;
@@ -253,7 +253,9 @@
 
     .line {
       fill: none;
-      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      transition:
+        stroke-dasharray 400ms,
+        stroke-dashoffset 400ms;
       stroke: var(--color-black);
       stroke-width: 6.5;
       stroke-linecap: round;

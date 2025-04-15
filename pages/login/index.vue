@@ -1,7 +1,7 @@
 <template>
   <main class="s-main-login">
     <m-image :image="backgroundImage" />
-    <s-login />
+    <s-auth />
   </main>
 </template>
 <script setup>

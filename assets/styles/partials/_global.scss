@@ -10,7 +10,7 @@ body {
   background-color: var(--color-white);
   font-family: 'Circe', sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   font-variant: no-common-ligatures;
   transition: background-color 0.3s;
 }
@@ -104,9 +104,10 @@ a {
     margin: 0;
     padding-top: 62px; /* высота хэдера*/
   }
-  &-login{
+  &-login {
     display: grid;
     grid-template-columns: 1fr;
+    height: 100%;
   }
 }
 /* stylelint-enable */
