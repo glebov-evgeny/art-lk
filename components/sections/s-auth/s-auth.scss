@@ -7,6 +7,10 @@
   color: var(--color-second);
   padding: var(--a-padding-x4) 0 var(--a-padding-x8);
 
+  @include _1140 {
+    background: var(--color-white);
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,10 @@
 
   &__center {
     height: 100%;
-    padding-top: var(--a-padding-x4);
+    margin: var(--a-padding-x8) 0 var(--a-padding-x4);
+    @include _768 {
+      margin: var(--a-padding-x20) 0 var(--a-padding-x4);
+    }
   }
 
   &__bottom {
@@ -29,31 +36,31 @@
     justify-content: center;
   }
 
-  &__title {
-    @include _768 {
-      font-size: torem(28);
-    }
-
-    margin-bottom: torem(16);
-    color: var(--color-second);
-    font-size: torem(24);
-    font-weight: 600;
-    line-height: 135%;
+  &__main {
+    background: var(--color-white);
+    border-radius: var(--border-radius-x2);
+    padding: var(--a-padding-x14) var(--a-padding-x8) var(--a-padding-x10);
+    max-width: torem(420);
+    margin: 0 auto;
     text-align: center;
   }
 
-  &__formbox {
-    max-width: torem(420);
-    margin: torem(24) auto 0;
+  &__title {
+    margin-bottom: torem(16);
+    color: var(--color-second);
+    font-size: torem(24);
+    font-weight: 700;
+    line-height: 135%;
     text-align: center;
+
+    @include _768 {
+      font-size: torem(28);
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    padding: var(--a-padding-x2);
-    border: torem(1) solid var(--color-grey);
-    border-radius: var(--border-radius-x1);
 
     &-input {
       width: 100%;
@@ -61,13 +68,12 @@
       margin-bottom: torem(10);
       padding: 0 torem(8);
       color: var(--color-second);
-
-      // border-radius: var(--border-radius-x1);
-      background: transparent !important;
-      border: none;
-      border-bottom: torem(1) solid var(--color-grey);
+      border-radius: var(--border-radius-x1);
+      background: var(--color-white);
+      border: torem(1) solid var(--color-grey);
       font-size: torem(16);
-      font-weight: 600;
+      font-weight: 400;
+      outline: none;
     }
 
     &-button {
@@ -75,9 +81,9 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      min-height: torem(46);
+      min-height: torem(40);
       color: var(--color-white);
-      background: var(--color-red);
+      background: var(--color-orange);
       border: none;
       border-radius: var(--border-radius-x1);
       outline: none;
@@ -87,7 +93,7 @@
     }
 
     &-error {
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -98,7 +104,8 @@
       background: var(--color-error);
       border-radius: var(--border-radius-x1);
       font-size: torem(14);
-      font-weight: 600;
+      font-weight: 700;
+      -webkit-user-select: none;
       user-select: none;
     }
   }
@@ -116,12 +123,12 @@
     width: 100%;
     min-height: torem(40);
     color: var(--color-black);
-    background: var(--color-grey);
-    border: none;
+    background: transparent;
+    border: torem(2) solid var(--color-orange);
     border-radius: var(--border-radius-x1);
     outline: none;
     font-size: torem(14);
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
   }
 
