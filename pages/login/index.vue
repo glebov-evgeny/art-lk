@@ -5,7 +5,7 @@
   </main>
 </template>
 <script setup>
-const backgroundImage = ref('./images/login/login.png');
+const backgroundImage = ref('../images/login/login.png');
 
 definePageMeta({
   layout: 'login',
