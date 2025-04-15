@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: torem(40);
+  height: torem(40);
   background: var(--color-white);
+  border-radius: var(--border-radius-x2);
+  font-size: torem(16);
+  font-weight: 800;
 }

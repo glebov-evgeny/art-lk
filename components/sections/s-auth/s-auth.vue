@@ -4,46 +4,51 @@
       <div class="s-auth__top">
         <a-lang />
       </div>
-      <h1 class="s-auth__title">{{ formName ? 'Войти' : 'Регистрация' }}</h1>
-      <div class="s-auth__formbox">
-        <form class="s-auth__form" @submit.prevent="sendForm">
-          <label class="s-auth__form-label">
-            <input
-              v-model="email"
-              class="s-auth__form-input"
-              type="text"
-              placeholder="Почта"
-            />
-          </label>
-          <label class="s-auth__form-label">
-            <input
-              v-model="password"
-              class="s-auth__form-input"
-              type="password"
-              placeholder="Пароль"
-            />
-          </label>
-          <button type="submit" class="s-auth__form-button">
-            {{ formName ? 'Вход' : 'Зарегистрироваться' }}
-          </button>
-          <div v-if="validFlag" class="s-auth__form-error">
-            <p v-if="emailError" class="s-auth__form-error-text">
-              Укажите корректную почту
-            </p>
-            <p v-if="passwordError" class="s-auth__form-error-text">
-              Пароль должен быть из 6 и более символов
-            </p>
-            <p v-if="fbError" class="s-auth__form-error-text">
-              {{ fbErrorText }}
-            </p>
-          </div>
-        </form>
-        <!-- <div class="s-auth__changebox">
-          <span class="s-auth__text">или</span>
-          <button class="s-auth__button" @click="checkForm">
-            {{ formName ? 'Регистрация' : 'Войти' }}
-          </button>
-        </div> -->
+      <div class="s-auth__center">
+        <h1 class="s-auth__title">{{ formName ? 'Войти' : 'Регистрация' }}</h1>
+        <div class="s-auth__formbox">
+          <form class="s-auth__form" @submit.prevent="sendForm">
+            <label class="s-auth__form-label">
+              <input
+                v-model="email"
+                class="s-auth__form-input"
+                type="text"
+                placeholder="Почта"
+              />
+            </label>
+            <label class="s-auth__form-label">
+              <input
+                v-model="password"
+                class="s-auth__form-input"
+                type="password"
+                placeholder="Пароль"
+              />
+            </label>
+            <button type="submit" class="s-auth__form-button">
+              {{ formName ? 'Вход' : 'Зарегистрироваться' }}
+            </button>
+            <div v-if="validFlag" class="s-auth__form-error">
+              <p v-if="emailError" class="s-auth__form-error-text">
+                Укажите корректную почту
+              </p>
+              <p v-if="passwordError" class="s-auth__form-error-text">
+                Пароль должен быть из 6 и более символов
+              </p>
+              <p v-if="fbError" class="s-auth__form-error-text">
+                {{ fbErrorText }}
+              </p>
+            </div>
+          </form>
+          <!-- <div class="s-auth__changebox">
+            <span class="s-auth__text">или</span>
+            <button class="s-auth__button" @click="checkForm">
+              {{ formName ? 'Регистрация' : 'Войти' }}
+            </button>
+          </div> -->
+        </div>
+      </div>
+      <div class="s-auth__bottom">
+        <a-logo />
       </div>
     </div>
   </section>
