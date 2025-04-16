@@ -66,7 +66,10 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
-  css: ['@/assets/styles/main.scss'],
+  css: [
+    '@/assets/styles/main.scss',
+    '@mdi/font/css/materialdesignicons.min.css',
+  ],
   components: {
     global: true,
     dirs: [

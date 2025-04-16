@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
+    "@mdi/font": "^7.4.47",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/i18n": "^9.5.3",
     "@pinia/nuxt": "^0.4.11",

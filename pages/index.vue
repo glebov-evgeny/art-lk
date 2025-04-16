@@ -1,13 +1,16 @@
 <template>
-  <main class="s-main">
-    <s-about />
-    <s-moc />
-    <s-popup-cookie
-      v-if="popupCookieIsShow"
-      @close-popup="closePopupCookie"
-      @close-popup-with-agreement="setArgeementOnCookie"
-    />
-  </main>
+  <div class="s-layout-wrapper">
+    <main class="s-main">
+      <s-nav />
+      <!-- <s-about /> -->
+      <!-- <s-moc /> -->
+      <s-popup-cookie
+        v-if="popupCookieIsShow"
+        @close-popup="closePopupCookie"
+        @close-popup-with-agreement="setArgeementOnCookie"
+      />
+    </main>
+  </div>
 </template>
 <script setup>
 definePageMeta({
