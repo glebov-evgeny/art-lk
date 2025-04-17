@@ -42,10 +42,10 @@ const finish = () => {
 
 onMounted(() => {
   start();
-  setTimeout(() => finish(), 800);
+  setTimeout(() => finish(), 1000);
 });
 </script>
 
 <style lang="scss">
-@import './s-loader-fast.scss';
+@import './a-loader.scss';
 </style>

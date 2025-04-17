@@ -32,7 +32,11 @@
                   class="s-auth__form-input-right"
                   @click="changePasswordType"
                 >
-                  {{ inputType === 'password' ? '👁️' : '🙈' }}
+                  <a-icon
+                    v-if="inputType === 'password'"
+                    :icon="'mdi-eye-outline'"
+                  />
+                  <a-icon v-else :icon="'mdi-eye-off-outline'" />
                 </div>
               </label>
               <button type="submit" class="s-auth__form-button">
@@ -55,6 +59,7 @@
         </div>
       </div>
       <div class="s-auth__bottom">
+        {{ locale }}
         <a-logo />
       </div>
     </div>
@@ -69,15 +74,16 @@ import {
   signInWithEmailAndPassword,
 } from '@firebase/auth';
 import { useAppStore } from '~/store/app';
+
 const auth = getAuth();
 const config = useRuntimeConfig();
-const currentUser = useAppStore();
+const authStore = useAppStore();
 const router = useRouter();
 const userInformation = useCookie('userInformation', {
   default: () => null,
   watch: 'shallow',
 });
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 let formName = ref(true);
 
@@ -114,8 +120,9 @@ const sendRegForm = async () => {
       email.value,
       password.value,
     );
-    currentUser.setUser(email.value, user.user.uid);
-    currentUser.setUserInMemory(true);
+    authStore.setUser(email.value, user.user.uid);
+    authStore.setUserInMemory(true);
+    authStore.setLang(locale.value);
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
     const cookieDataUser = {
       email: email.value,
@@ -140,8 +147,9 @@ const sendLoginForm = async () => {
       email.value,
       password.value,
     );
-    currentUser.setUser(email.value, user.user.uid);
-    currentUser.setUserInMemory(true);
+    authStore.setUser(email.value, user.user.uid);
+    authStore.setUserInMemory(true);
+    authStore.setLang(locale.value);
 
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
     const cookieDataUser = {

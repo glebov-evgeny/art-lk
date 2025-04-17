@@ -1,18 +1,19 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
   <div
-    class="s-popup-cookie"
+    class="m-popup"
     :class="[{ _animated: isAnimated }]"
     @click.stop="popupIsClosed"
   >
     <div
-      class="s-popup-cookie__content"
+      class="m-popup__content"
       :class="[{ _animated: isAnimated }]"
+      :style="{ maxWidth: maxWidth ? maxWidth + 'px' : '400px' }"
       @click.stop
     >
-      <div class="s-popup-cookie__close" @click.stop="popupIsClosed">
+      <div class="m-popup__close" @click.stop="popupIsClosed">
         <svg
-          class="s-popup-cookie__close-icon"
+          class="m-popup__close-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 30 30"
         >
@@ -21,19 +22,8 @@
           />
         </svg>
       </div>
-      <div class="s-popup-cookie__box">
-        <!-- <p>{{ $t('intro.description_2') }}</p> -->
-        <h2 class="s-popup-cookie-title s-title">Важная мысль</h2>
-        <p class="s-popup-cookie-description s-description">
-          На&nbsp;этом сайте используются <b>cookie</b>, и&nbsp;это нормально.
-          Но&nbsp;стоит предупредить на&nbsp;всякий случай.
-        </p>
-        <button
-          class="s-popup-cookie-button"
-          @click.stop="popupIsClosedWithAgreement"
-        >
-          Ну ок
-        </button>
+      <div class="m-popup__box">
+        <slot />
       </div>
     </div>
   </div>
@@ -42,12 +32,17 @@
 const isAnimated = ref(false);
 const emit = defineEmits(['closePopup', 'closePopupWithAgreement']);
 
+defineProps({
+  maxWidth: {
+    type: String,
+    default: () => {
+      return '';
+    },
+  },
+});
+
 const popupIsClosed = () => {
   emit('closePopup');
-};
-
-const popupIsClosedWithAgreement = () => {
-  emit('closePopupWithAgreement');
 };
 
 const showAnimation = async () => {
@@ -61,5 +56,5 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
-@import './s-popup-cookie.scss';
+@import './m-popup.scss';
 </style>

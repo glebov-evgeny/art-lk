@@ -1,3 +1,94 @@
 .s-nav {
-  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--color-grey-light);
+  border-radius: var(--border-radius-x3);
+  margin-right: var(--a-padding-x2);
+  padding: var(--a-padding-x2);
+
+  @include _1140 {
+    padding: var(--a-padding-x2);
+    flex-direction: column;
+    margin-right: var(--a-padding-x4);
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--a-padding-x2);
+    width: torem(36);
+    height: torem(36);
+    position: relative;
+    border-radius: var(--border-radius-x4);
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      transition: 0.3s;
+      background: var(--color-grey-light-hover);
+    }
+
+    &._active {
+      transition: 0.4s;
+      background: var(--color-blue);
+
+      .mdi {
+        color: var(--color-main);
+      }
+
+      @include _768 {
+        background: var(--color-black);
+
+        .mdi {
+          color: var(--color-main);
+        }
+      }
+    }
+
+    @include _768 {
+      border-radius: var(--border-radius-x3);
+      margin: 0 var(--a-padding-x1);
+    }
+
+    @include _1140 {
+      width: torem(42);
+      height: torem(42);
+      margin: var(--a-padding-x2) 0;
+    }
+
+    &-settings {
+      margin-left: auto;
+      @include _768 {
+        &::after {
+          content: '';
+          width: torem(1);
+          height: torem(24);
+          background: var(--color-black);
+          position: absolute;
+          right: calc(-1 * var(--a-padding-x1));
+        }
+      }
+
+      @include _1140 {
+        margin: auto 0 var(--a-padding-x2) 0;
+
+        &::after {
+          width: torem(24);
+          height: torem(1);
+          right: unset;
+          bottom: calc(-1 * var(--a-padding-x2));
+        }
+      }
+    }
+
+    &-icon {
+      color: var(--color-second);
+    }
+
+    &-info {
+      display: none;
+    }
+  }
 }

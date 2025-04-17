@@ -1,8 +1,20 @@
 :root {
-  .f- {
+  .font {
     &-title {
-      font-size: to-rem(32);
+      font-size: torem(32);
       font-weight: 600;
+    }
+
+    &-popup {
+      &-title {
+        font-size: torem(24);
+        line-height: 120%;
+      }
+
+      &-text {
+        font-size: torem(18);
+        line-height: 120%;
+      }
     }
   }
 }

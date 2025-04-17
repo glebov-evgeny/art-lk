@@ -1,0 +1,29 @@
+.a-popup-cookie {
+  color: var(--color-second);
+
+  &-title {
+    margin-bottom: torem(16);
+  }
+
+  &-description {
+    color: var(--color-second);
+  }
+
+  &-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: torem(240);
+    min-height: torem(48);
+    font-size: torem(16);
+    border: none;
+    border-radius: var(--border-radius-x2);
+    margin: torem(48) auto 0;
+    font-weight: 600;
+    transition: 0.2s;
+    background: var(--color-yellow);
+    color: var(--color-black);
+  }
+}

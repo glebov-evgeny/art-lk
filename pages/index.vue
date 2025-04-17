@@ -2,10 +2,12 @@
   <div class="s-layout-wrapper">
     <main class="s-main">
       <s-nav />
-      <!-- <s-about /> -->
-      <!-- <s-moc /> -->
-      <s-popup-cookie
+      <div class="s-main-content">
+        <s-moc />
+      </div>
+      <a-popup-cookie
         v-if="popupCookieIsShow"
+        :width="480"
         @close-popup="closePopupCookie"
         @close-popup-with-agreement="setArgeementOnCookie"
       />

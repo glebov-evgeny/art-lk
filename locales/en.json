@@ -1,15 +1,9 @@
 {
   "header": {
-    "nav": [
-      {
-        "title": "Skills",
-        "name": "skills"
-      },
-      {
-        "title": "Work experience",
-        "name": "experience"
-      }
-    ],
+    "main": "Home",
+    "settings": "Settings",
+    "arts": "Arts",
+    "user": "Profile",
     "language": "RU",
     "login": "Login",
     "logout": "Logout"
@@ -24,7 +18,13 @@
     "confirm2": "I confirm to the processing of data and agree to the privacy policy",
     "or": "or",
     "errorUser": "User not found",
-    "errorMail": "Mail is already registered"
+    "errorMail": "Mail is already registered",
+    "agree": "Аgree"
+  },
+  "popup": {
+    "cookie_title": "Important information",
+    "cookie_text_1": "This site uses cookies, and that's okay.",
+    "cookie_text_2": "Just in case, we are warning you so that you are aware."
   },
   "intro": {
     "subtitle": "Hey, I’m",

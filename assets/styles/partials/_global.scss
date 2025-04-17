@@ -7,7 +7,6 @@ body {
 
 body {
   overflow-x: hidden !important;
-  background-color: var(--color-white);
   font-family: 'Circe', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -43,7 +42,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-second);
+  background-color: var(--color-grey);
   border-radius: 0.4rem;
 }
 
@@ -114,15 +113,28 @@ a {
   flex: 1 auto;
   width: 100%;
   height: 100%;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-grey-line);
   border-radius: var(--border-radius-x7);
-  overflow-x: hidden;
-  padding: var(--a-padding-x4);
-  // margin-top: 56px; /* высота хэдера*/
-  // @include _1440 {
-  //   // margin: 0;
-  //   // padding-top: 62px; /* высота хэдера*/
-  // }
+  overflow: hidden;
+  padding: var(--a-padding-x4) var(--a-padding-x2) var(--a-padding-x4)
+    var(--a-padding-x4);
+  @include _768 {
+    border-radius: var(--border-radius-x3);
+  }
+  @include _1140 {
+    display: flex;
+  }
+  &-content {
+    height: calc(100% - var(--a-padding-x14));
+    overflow: auto;
+    padding-right: var(--a-padding-x2);
+    margin-top: var(--a-padding-x2);
+    width: 100%;
+    @include _1140 {
+      margin: 0;
+      height: 100%;
+    }
+  }
   &-login {
     display: grid;
     grid-template-columns: 1fr;
