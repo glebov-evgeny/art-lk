@@ -123,6 +123,7 @@ const sendRegForm = async () => {
     authStore.setUser(email.value, user.user.uid);
     authStore.setUserInMemory(true);
     authStore.setLang(locale.value);
+    authStore.setTheme('day');
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
     const cookieDataUser = {
       email: email.value,
@@ -150,6 +151,7 @@ const sendLoginForm = async () => {
     authStore.setUser(email.value, user.user.uid);
     authStore.setUserInMemory(true);
     authStore.setLang(locale.value);
+    authStore.setTheme('day');
 
     /* устанавливаю куки с почтой и id пользователя на 7 дней */
     const cookieDataUser = {

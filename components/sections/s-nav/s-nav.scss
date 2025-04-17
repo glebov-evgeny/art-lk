@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: var(--color-grey-light);
+  background-color: var(--color-grey-light);
+  transition: background-color 0.3s;
   border-radius: var(--border-radius-x3);
   margin-right: var(--a-padding-x2);
   padding: var(--a-padding-x2);
@@ -30,20 +31,16 @@
       background: var(--color-grey-light-hover);
     }
 
+    .mdi {
+      color: var(--color-second);
+    }
+
     &._active {
       transition: 0.4s;
-      background: var(--color-blue);
+      background: var(--color-black);
 
       .mdi {
-        color: var(--color-main);
-      }
-
-      @include _768 {
-        background: var(--color-black);
-
-        .mdi {
-          color: var(--color-main);
-        }
+        color: var(--color-white);
       }
     }
 

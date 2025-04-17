@@ -4,7 +4,10 @@
       v-for="(item, index) in navItems"
       :key="index"
       class="s-nav-item"
-      :class="[{ _active: item.active }, `s-nav-item-${item.class}`]"
+      :class="[
+        { _active: modelValue === item.class },
+        `s-nav-item-${item.class}`,
+      ]"
       @click="setActive(item.class)"
     >
       <a-icon :icon="item.icon" class="s-nav-item-icon" />
@@ -26,43 +29,20 @@
   </section>
 </template>
 <script setup>
-import { useI18n } from 'vue-i18n';
-// import { useAppStore } from '~/store/app';
-// const authStore = useAppStore();
-
-const { t } = useI18n();
-
-const activeItemClass = ref('main');
-
-const navItems = computed(() => [
-  {
-    title: t('header.main'),
-    class: 'main',
-    icon: 'mdi-home',
-    active: activeItemClass.value === 'main',
+defineProps({
+  modelValue: {
+    type: String,
+    required: true,
   },
-  {
-    title: t('header.arts'),
-    class: 'arts',
-    icon: 'mdi-palette',
-    active: activeItemClass.value === 'arts',
+  navItems: {
+    type: Array,
+    required: true,
   },
-  {
-    title: t('header.settings'),
-    class: 'settings',
-    icon: 'mdi-cog',
-    active: activeItemClass.value === 'settings',
-  },
-  {
-    title: t('header.user'),
-    class: 'user',
-    icon: 'mdi-account-circle-outline',
-    active: activeItemClass.value === 'user',
-  },
-]);
+});
+const emit = defineEmits(['update:modelValue']);
 
-const setActive = (className) => {
-  activeItemClass.value = className;
+const setActive = (val) => {
+  emit('update:modelValue', val);
 };
 </script>
 

@@ -1,9 +1,11 @@
 <template>
   <div class="s-layout-wrapper">
     <main class="s-main">
-      <s-nav />
+      <s-nav v-model="activeItem" :nav-items="navItems" />
       <div class="s-main-content">
-        <s-moc />
+        <Transition name="fade" mode="out-in">
+          <component :is="currentComponent" />
+        </Transition>
       </div>
       <a-popup-cookie
         v-if="popupCookieIsShow"
@@ -15,6 +17,9 @@
   </div>
 </template>
 <script setup>
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+
 definePageMeta({
   middleware: 'auth',
 });
@@ -28,6 +33,48 @@ const userAgreeCookie = useCookie('userAgreeCookie', {
 const closePopupCookie = () => {
   popupCookieIsShow.value = false;
 };
+
+const activeItem = ref('main');
+
+const navItems = computed(() => [
+  {
+    title: t('header.main'),
+    class: 'main',
+    icon: 'mdi-home',
+  },
+  {
+    title: t('header.arts'),
+    class: 'arts',
+    icon: 'mdi-palette',
+  },
+  {
+    title: t('header.settings'),
+    class: 'settings',
+    icon: 'mdi-cog',
+  },
+  {
+    title: t('header.user'),
+    class: 'user',
+    icon: 'mdi-account-circle-outline',
+  },
+]);
+
+const componentMap = {
+  main: defineAsyncComponent(() =>
+    import('@/components/sections/s-home/s-home.vue'),
+  ),
+  arts: defineAsyncComponent(() =>
+    import('@/components/sections/s-arts/s-arts.vue'),
+  ),
+  settings: defineAsyncComponent(() =>
+    import('@/components/sections/s-settings/s-settings.vue'),
+  ),
+  user: defineAsyncComponent(() =>
+    import('@/components/sections/s-profile/s-profile.vue'),
+  ),
+};
+
+const currentComponent = computed(() => componentMap[activeItem.value]);
 
 const setArgeementOnCookie = () => {
   popupCookieIsShow.value = false;
