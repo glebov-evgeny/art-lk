@@ -59,7 +59,6 @@
         </div>
       </div>
       <div class="s-auth__bottom">
-        {{ locale }}
         <a-logo />
       </div>
     </div>

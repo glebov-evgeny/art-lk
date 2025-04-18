@@ -1,7 +1,7 @@
 <template>
   <section
     class="m-image"
-    :style="{ backgroundImage: `url(${image})` }"
+    :style="{ background: `url(${image}), rgb(1 50 86)` }"
   ></section>
 </template>
 
