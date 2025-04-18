@@ -1,0 +1,1 @@
+import c from"./B_cVS-72.js";import{u as r,a as _,c as m,d as u,m as l,f as a,ae as p,y as i,i as d}from"./D0yDvV06.js";const v={__name:"default",setup(f){const{locale:t}=r(),e=_();t.value=e.siteLang;const s=m(()=>e.siteTheme==="night");return(h,k)=>{const o=c,n=p;return l(),u("div",{class:i(["s-layout",{"dark-themes":d(s)}])},[a(o),a(n)],2)}}};export{v as default};

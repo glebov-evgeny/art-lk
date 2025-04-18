@@ -1,0 +1,1 @@
+import{d as r,m as a,y as n}from"./D0yDvV06.js";const s={__name:"a-icon",props:{icon:{type:String,required:!0}},setup(e){return(t,c)=>(a(),r("i",{class:n(["mdi",e.icon])},null,2))}};export{s as default};

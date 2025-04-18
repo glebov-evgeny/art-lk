@@ -1,0 +1,1 @@
+import o from"./C9CvXeqs.js";import{d as t,f as n,m as s}from"./D0yDvV06.js";import"./DciEt2cn.js";const a={class:"s-main"},d={__name:"index",setup(_){return(c,m)=>{const e=o;return s(),t("main",a,[n(e)])}}};export{d as default};

@@ -1,0 +1,1 @@
+import{r as a,d as t,m as o,f as n,ae as r,y as c,i as _}from"./D0yDvV06.js";const u={__name:"login",setup(l){const e=a(!1);return(m,i)=>{const s=r;return o(),t("div",{class:c(["s-layout-login",{"dark-themes":_(e)}])},[n(s)],2)}}};export{u as default};

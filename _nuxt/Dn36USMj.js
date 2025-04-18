@@ -1,0 +1,1 @@
+import{a as s,d as o,m as l,e as r,t as c}from"./D0yDvV06.js";const i={__name:"a-lang",setup(u){const n=s(),t=e=>{e.locale=e.locale==="ru"?"en":"ru",n.setLang(e.locale)};return(e,a)=>(l(),o("div",{class:"a-lang",onClick:a[0]||(a[0]=p=>t(e.$i18n))},[r("span",null,c(e.$t("header.language")),1)]))}};export{i as default};

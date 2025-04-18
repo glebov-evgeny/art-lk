@@ -1,0 +1,1 @@
+import{R as o,d as a,m as n,e as s,t as r}from"./D0yDvV06.js";const c={},_={class:"s-home"},i={class:"s-wrapper"},d={class:"s-wrapper__top"},l={class:"font-title"};function p(t,e){return n(),a("section",_,[s("div",i,[s("div",d,[s("h1",l,r(t.$t("header.main")),1)]),e[0]||(e[0]=s("div",{class:"s-wrapper__content"},null,-1))])])}const f=o(c,[["render",p]]);export{f as default};

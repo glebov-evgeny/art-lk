@@ -1,0 +1,1 @@
+import{d as r,m as a,s as t}from"./D0yDvV06.js";const c={__name:"m-image",props:{image:{type:String,required:!0}},setup(e){return(m,s)=>(a(),r("section",{class:"m-image",style:t({background:`url(${e.image}), rgb(1 50 86)`})},null,4))}};export{c as default};

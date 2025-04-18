@@ -1,0 +1,1 @@
+import o from"./CIUQTD-2.js";import{a as c,d as n,m as a,f as m}from"./D0yDvV06.js";const u={__name:"m-theme-switcher",setup(r){const e=c(),t=()=>{e.siteTheme==="day"?e.setTheme("night"):e.setTheme("day")};return(_,h)=>{const s=o;return a(),n("div",{class:"m-theme-switcher",onClick:t},[m(s)])}}};export{u as default};
