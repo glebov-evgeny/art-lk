@@ -1,0 +1,44 @@
+.m-form {
+  display: flex;
+  flex-direction: column;
+  &-input {
+    width: 100%;
+    min-height: torem(40);
+    padding: 0 torem(40) 0 torem(8);
+    color: var(--color-second);
+    border-radius: var(--border-radius-x1);
+    background: var(--color-white);
+    border: torem(1) solid var(--color-grey);
+    font-size: torem(16);
+    font-weight: 400;
+    outline: none;
+
+    &._error {
+      border: torem(1) solid var(--color-red);
+      color: var(--color-red);
+
+      &::placeholder {
+        color: var(--color-red);
+      }
+    }
+  }
+  &-label {
+    position: relative;
+    margin-bottom: torem(10);
+  }
+  &-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: torem(40);
+    color: var(--color-white);
+    background: var(--color-orange);
+    border: none;
+    border-radius: var(--border-radius-x1);
+    outline: none;
+    font-size: torem(16);
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

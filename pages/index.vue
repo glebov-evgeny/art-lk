@@ -17,8 +17,10 @@
   </div>
 </template>
 <script setup>
+import { useAppStore } from '~/store/app';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
+const authStore = useAppStore();
 
 definePageMeta({
   middleware: 'auth',
@@ -34,7 +36,7 @@ const closePopupCookie = () => {
   popupCookieIsShow.value = false;
 };
 
-const activeItem = ref('main');
+const activeItem = ref(authStore.siteTab);
 
 const navItems = computed(() => [
   {
@@ -92,6 +94,10 @@ const getInformationFromCookie = async () => {
     }, 2000);
   }
 };
+
+watch(activeItem, (newTab) => {
+  authStore.setTab(newTab);
+});
 
 onMounted(() => {
   getInformationFromCookie();

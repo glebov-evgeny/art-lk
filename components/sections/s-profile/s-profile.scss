@@ -1,3 +1,9 @@
 .s-profile {
-  background: var(--color-main);
+  &__box {
+    border: 1px solid var(--color-grey-line);
+    border-radius: var(--border-radius-x3);
+    width: 100%;
+    padding: var(--a-padding-x4);
+    max-width: torem(380);
+  }
 }

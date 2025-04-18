@@ -22,5 +22,6 @@ module.exports = {
     'color-function-alias-notation': null,
     'color-function-notation': null,
     'declaration-block-no-redundant-longhand-properties': null,
+    'rule-empty-line-before': null,
   },
 };

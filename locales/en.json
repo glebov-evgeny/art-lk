@@ -12,14 +12,18 @@
     "login": "Login",
     "registration": "Registration",
     "name": "Name",
+    "surname": "Surname",
+    "about": "A few words about myself (optional)",
     "email": "Email",
+    "phone": "Телефон",
     "password": "Password",
     "confirm": "I confirm to the sending, processing and storage of data",
     "confirm2": "I confirm to the processing of data and agree to the privacy policy",
     "or": "or",
     "errorUser": "User not found",
     "errorMail": "Mail is already registered",
-    "agree": "Аgree"
+    "agree": "Аgree",
+    "send": "subtitle"
   },
   "popup": {
     "cookie_title": "Important information",
@@ -36,6 +40,10 @@
   "settings": {
     "color": "Dark Mode",
     "lang": "Change Language"
+  },
+  "profile": {
+    "subtitle": "A few words about myself",
+    "lang": "..."
   },
   "btnBack": "Go back",
   "footer": {

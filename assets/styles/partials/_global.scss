@@ -63,6 +63,9 @@ a {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    z-index: 50;
+    background-color: var(--color-main);
+    transition: background-color 0.3s;
   }
   &__content {
     width: 100%;

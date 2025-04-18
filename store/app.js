@@ -5,6 +5,7 @@ export const useAppStore = defineStore({
   state: () => {
     const langCookie = useCookie('siteLang');
     const themeCookie = useCookie('siteTheme');
+    const tabCookie = useCookie('siteTab');
     return {
       user: {
         email: null,
@@ -13,6 +14,7 @@ export const useAppStore = defineStore({
       userInMemory: false,
       siteLang: langCookie.value || 'ru',
       siteTheme: themeCookie.value || 'day',
+      siteTab: tabCookie.value || 'main',
     };
   },
 
@@ -25,6 +27,11 @@ export const useAppStore = defineStore({
       const localeCookie = useCookie('siteLang');
       localeCookie.value = lang;
       this.siteLang = lang;
+    },
+    setTab(tab) {
+      const tabCookie = useCookie('siteTab');
+      tabCookie.value = tab;
+      this.siteTab = tab;
     },
     setTheme(theme) {
       const themeCookie = useCookie('siteTheme');
