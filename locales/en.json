@@ -33,6 +33,10 @@
   "work": {
     "title": "Page on work"
   },
+  "settings": {
+    "color": "Dark Mode",
+    "lang": "Change Language"
+  },
   "btnBack": "Go back",
   "footer": {
     "contacts": "Contacts:",

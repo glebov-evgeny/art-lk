@@ -1,3 +1,19 @@
 .s-settings {
-  background: var(--color-main);
+  &__box {
+    border: 1px solid var(--color-grey-line);
+    border-radius: var(--border-radius-x3);
+    width: 100%;
+    padding: var(--a-padding-x4);
+    max-width: torem(380);
+
+    &-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:not(:last-child) {
+        margin-bottom: var(--a-padding-x2);
+      }
+    }
+  }
 }

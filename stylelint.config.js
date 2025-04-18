@@ -21,5 +21,6 @@ module.exports = {
     'alpha-value-notation': null,
     'color-function-alias-notation': null,
     'color-function-notation': null,
+    'declaration-block-no-redundant-longhand-properties': null,
   },
 };

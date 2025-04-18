@@ -1,0 +1,48 @@
+.a-switch {
+  position: relative;
+  display: inline-block;
+  width: torem(36);
+  height: torem(20);
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .a-switch-slider {
+      background-color: var(--color-second);
+    }
+
+    &:checked + .a-switch-slider::before {
+      transform: translateX(torem(16));
+    }
+  }
+
+  &-slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: var(--color-switch);
+    border-radius: var(--a-padding-x14);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: torem(14);
+      width: torem(14);
+      left: torem(3);
+      bottom: torem(3);
+      background-color: var(--color-main);
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      background-color: var(--color-switch-hover);
+    }
+  }
+}
