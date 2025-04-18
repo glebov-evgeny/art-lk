@@ -13,19 +13,12 @@
       <a-icon :icon="item.icon" class="s-nav-item-icon" />
       <span class="s-nav-item-info">{{ item.title }}</span>
     </div>
-    <!-- <div class="s-nav-item">
-      <a-icon :icon="'mdi-moon-new'" />
-      <a-icon :icon="'mdi-moon-full'" />
-    </div> -->
-    <!-- <div class="s-nav-item">
-      <a-sun />
-    </div> -->
-    <!-- <div class="s-nav-item">
-      <a-icon :icon="'mdi-account-circle-outline'" class="s-nav-item-icon" />
-    </div> -->
-    <!-- <div class="s-nav-item">
+    <div class="s-nav-item s-nav-item-colored s-nav-item-colored-first">
+      <m-theme-switcher />
+    </div>
+    <div class="s-nav-item s-nav-item-colored">
       <a-lang />
-    </div> -->
+    </div>
   </section>
 </template>
 <script setup>

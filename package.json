@@ -59,6 +59,7 @@
     "dompurify": "^2.4.3",
     "firebase": "^9.18.0",
     "gh-pages": "^5.0.0",
+    "maska": "^3.1.1",
     "pinia": "^2.1.6",
     "prettier": "^3.0.2",
     "vue-toast-notification": "^3.1.1",

@@ -62,17 +62,17 @@ const navItems = computed(() => [
 ]);
 
 const componentMap = {
-  main: defineAsyncComponent(() =>
-    import('@/components/sections/s-home/s-home.vue'),
+  main: defineAsyncComponent(
+    () => import('@/components/sections/s-home/s-home.vue'),
   ),
-  arts: defineAsyncComponent(() =>
-    import('@/components/sections/s-arts/s-arts.vue'),
+  arts: defineAsyncComponent(
+    () => import('@/components/sections/s-arts/s-arts.vue'),
   ),
-  settings: defineAsyncComponent(() =>
-    import('@/components/sections/s-settings/s-settings.vue'),
+  settings: defineAsyncComponent(
+    () => import('@/components/sections/s-settings/s-settings.vue'),
   ),
-  user: defineAsyncComponent(() =>
-    import('@/components/sections/s-profile/s-profile.vue'),
+  user: defineAsyncComponent(
+    () => import('@/components/sections/s-profile/s-profile.vue'),
   ),
 };
 

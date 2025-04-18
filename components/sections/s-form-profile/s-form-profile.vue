@@ -20,20 +20,12 @@
     </label>
     <label class="m-form-label">
       <input
-        v-model.trim="user.phone"
+        v-model="user.phone"
+        v-maska="'+7 (###) ###-##-##'"
         class="m-form-input m-form-input-phone"
         :class="{ _error: userPhoneError }"
         type="text"
         :placeholder="$t('form.phone')"
-      />
-    </label>
-    <label class="m-form-label">
-      <textarea
-        v-model.trim="user.about"
-        class="m-form-textarea m-form-input-about"
-        :class="{ _error: userAboutError }"
-        type="text"
-        :placeholder="$t('form.about')"
       />
     </label>
     <label class="m-form-label">
@@ -45,9 +37,20 @@
         :placeholder="$t('form.email')"
       />
     </label>
+    <label class="m-form-label">
+      <textarea
+        v-model.trim="user.about"
+        class="m-form-textarea m-form-input-about"
+        :class="{ _error: userAboutError }"
+        type="text"
+        :placeholder="$t('form.about')"
+      />
+    </label>
   </m-form>
 </template>
 <script setup>
+import { vMaska } from 'maska/vue';
+
 const user = ref({
   name: '',
   surname: '',
@@ -101,7 +104,10 @@ const validForm = () => {
   }
 
   // About (если есть текст)
-  if (user.value.about && !safeAboutRegex.test(user.value.about)) {
+  if (
+    user.value.about &&
+    (!safeAboutRegex.test(user.value.about) || user.value.about.length > 360)
+  ) {
     userAboutError.value = true;
     isValid = false;
   }

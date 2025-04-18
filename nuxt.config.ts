@@ -33,14 +33,18 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'og:title', property: 'og:title', content: 'ART_LK.ru' },
+        { hid: 'og:title', property: 'og:title', content: 'artforyou-lk.ru' },
         {
           hid: 'og:description',
           property: 'og:description',
           content: 'Текст обо всём',
         },
-        { hid: 'description', name: 'description', content: 'Текст обо всём' },
-        { hid: 'keywords', name: 'keywords', content: 'Текст обо всём' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Искусство для каждого',
+        },
+        { hid: 'keywords', name: 'keywords', content: 'Искусство для каждого' },
         { name: 'theme-color', content: '#fff' },
         {
           name: 'apple-mobile-web-app-status-bar-style',
